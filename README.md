@@ -68,3 +68,53 @@ In samples with high alcohol content, the total SO2 content is low, and in the s
 BIVARIATE ANALYSIS:
 
 Based on the general knowledge of biochemistry, you can judge the correlation between some parameters, such as sugar content and alcohol content can affect the density.Are there any more correlations? After listing the correlation coefficient matrix, based on the calculated correlation coefficients, roughly ploting the coefficients above 0.2 to see if the coefficients and the map match. During this exploration, we found the density and the amount of residual sugar have correlation with total SO2.Through the correlation coefficient matrix, we can see the quality has a greater correlation with the following factors: density, alcohol, alchohol, total SO2 content. These are the focus of further exploration.The strongest correlation is between the density and the amount of residual sugar, with a coefficient of 0.84.
+
+MULTIVARIATE PLOTS:( I could have used better colours:))
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/6ec6d71d-09f1-48fd-9e79-d1c0c6e86a4b)
+
+As we expected, the higher the sugar content of the sample, the higher the density value. The higher the score of the sample(the 8, 9 points), the sample density tended to be lower. If the sample has the same sugar content, the lower the density of the sample score relatively high.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/0db4ea87-c88c-4a16-86a3-625c009cf6b9)
+
+As expected, the density of alcohol is negatively correlated with the density of wine. During the fermentation process, because the sugar is slowly converted to alcohol, the sugar decreases, the alcohol increases, and the overall density decreases. Also, the sample with high alcohol content indicates that the fermentation process is good, the chances of getting a high score increase. There are more blue or blue-green data points in the high-alcohol scatter area.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/2132cc04-6fcb-41e0-85a9-c916f105fc26)
+
+Samples with high alcohol content, such as samples above 10.5%, have a slightly lower residual sugar content of less than 9g / ml. There are more samples with high scores in this range.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/20dee71b-b19a-487b-899f-44c10f245a6b)
+
+Overall，the total SO2 content is low, and the sample with higher alcohol intent to have a higher score.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/2f3f78b6-ea4d-405b-baf6-03e3a96f910c)
+
+The figure above shows that when the chloride content is low and the alcohol content is high, the sample score will be higher.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/445190ce-d219-4e42-b752-edcf654e7d6d)
+
+There is no obvious difference in the fixed acidity in the samples with different alcoholity, and there is no obvious trend in the score of the samples with different acidity.
+
+MULTIVARIATE ANALYSIS:
+
+- The acetic acid, malic acid, citric acid, consumed sugar, alcohol, and sterilization and freshness of SO2 produced in the winemaking process can be comprehensively reflected in the physical parameter density. Approximately, alcoholicity 10.5-11 as a reference, we can observe Low-alcohol samples have higher densities, and the scores are mainly represented by the color crimson indicating the wine quality of 3-4. In samples with an alcohol content of 11 or higher, the sample density shows a decreasing trend, with blue and blue scores representing 7, 8, 9. The green sample data points are mainly, the high-scoring samples are concentrated in the areas with low density and high alcohol content. Alcohol and wine density are negatively correlated. During the fermentation process, because sugar is slowly converted to alcohol, the sugar content is reduced, and the alcohol content is increased, it further decreased the density. At the same time, samples with high alcohol content indicate that the fermentation process is good, and the probability of the sample getting a high score is increased.
+
+- the relationship between the added SO2 and alcohol content during the brewing process affects the score. In the data description chart, we can see that as the alcohol content increases, the samples with high scores increase, and the total SO2 decreases. To maintain the freshness and stop the oxidation, the level of SO2 added needs to be monitored. When the fermentation process is smooth, a certain amount of SO2 is consumed and kept in balance with free SO2. When the fermentation is not smooth, SO2 needs to be added to maintain the normal pH value and prevent brewing failure. The sample with a lower total SO2 content tends to have a higher overall score. This phenomenon shows that the total SO2 content is generally low in samples with an alcohol content higher than 11%.
+
+- In the previous data exploration, it was found that the residual sugar data showed a right skewed curve. In linear regression analysis, if the data was converted by log10 function processing, then it would have been easier to find the correlation with alcohol content. In all the samples that were scored, the higher the score of the sample, the lower the residual sugar amount. We can observe that with the increase of alcohol content, the number of samples with a high residual sugar amount is decreasing.
+
+- Fixed acidity, malic acid, citric acid, and residual sugar have no positive effect on the score. High alcohol samples have a tendency to get high scores.
+
+- Under the influence of alcohol, the taste of the wine has more full body feel, and the amount of residual sugar has not played a role in increased score. With too much sugar, other tastes tends to be over powered by the sweetness.
+
+FINAL REFLECTION:
+
+- The entire process is to understand the data type and distribution by exploring a single data set, and to explore the correlation between the two sample parameters. In the second step, we are showing which factors are affected by the score. It is a gradual process. In each step of the drawing process, by adjusting the drawing parameters and adjusting the data image, the image is clearer and easier to discuss.
+  
+- The process of exploring this data requires a general understanding of the process of making wine, such as why the SO2 in the sample need to be in balance, and how it affects the density, pH, alcohol content and fermentation process of the wine. When the graph drawn is not consistent with prognosis, there are clues to find the cause of the inconsistency.
+  
+- From the process of data exploration, the influence of alcohol content on scoring is becoming more and more obvious. It is the ultimate product in the fermentation process. Fermentation goes smoothly, the amount of sugar in grapes gradually decreases, the density decreases, the alcohol content increases, and the organic substances in the alcohol affecting the taste and body of the wine, also by avoiding excessive SO2 in the wine to prevent the biochemical inbalance, thus the total SO2 content remain low.
+  
+- Lesson learned: When drawing multivariate graphics, I found that according to the original quality classification, the color difference of the graphs is not obvious since there are few samples with 8, 9 scores, and it would be much better to classify the scores into smaller categories for the sake of better visibility and understanding.
+
+- Difficulties encountered: For majority of the the bivariate and multivariate plots, the regression line was negatively affected due to the presence of a large number of outliers and the precision of the plots was to be questioned. In the final section of the code, the detection and removal of the outliers is carried out using Tukey’s Method.
