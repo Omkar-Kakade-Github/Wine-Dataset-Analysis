@@ -24,4 +24,47 @@ This small project is my entry into the world of analytics and data. I will be a
 
 - Quality: Comprehensive score of the wine
 
-This dataset contains 4868 observations of 12 characteristics (fixed acidity, volatile acid, citric acid, residual sugar, chloride, free sulfur dioxide, total sulfur dioxide, density, pH, sulfate, alcohol, and mass). Here, 11 Characteristics are numerical data types that reflect the physical and chemical characteristics of wine, and the last one(quality) is the wine score. Although it is a numerical value, we use the wine’s score as an index to measure quality as a categorical variable.
+This dataset contains 4898 observations of 12 characteristics (fixed acidity, volatile acid, citric acid, residual sugar, chloride, free sulfur dioxide, total sulfur dioxide, density, pH, sulfate, alcohol, and quality). Here, 11 Characteristics are numerical data types that reflect the physical and chemical characteristics of wine, and the last one(quality) is the wine score. Although it is a numerical value, we use the wine’s score as an index to measure quality as a categorical variable.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/20daf39d-7ca0-4d29-92c4-7f902906a401)
+
+As you can see, most wines fall under the average quality. There are fewer wines that are of very high quality and great tasting, and very few wines that aren’t so good.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/d064a839-4a78-431c-ac85-53259ee1b00a)
+
+As you can see, the squares with positive values show direct co-relationships between features. The higher the values, the stronger these relationships are. That means, if one feature increases, the other one also tends to increase, and vice-versa.
+The squares that have negative values show an inverse co-relationship. The more negative these values get, the more inversely proportional they are. This means that if the value of one feature is higher, the value of the other one gets lower.
+Finally, squares close to zero indicate almost no co-dependency between those sets of features.
+
+From the above correlation coefficients, the coefficients worth our effort to explore further more.
+- Between SO2 and density, residual sugar
+- Correlation coefficients between alcohol content and chlorides, residual sugar content, total SO2, fixed acidity
+- Quality is related to the following factors: volatile acidity, total SO2, density, alcohol, chloride.
+
+The correlation between the density and the amount of residual sugar, and the amount of alcohol is relatively easy to understand.The sugar content is high,then the density will increase. The density of alcohol is smaller than water and the pH is low. The key point for us to explore is the relationship between density, alcohol and chloride and quality score.
+
+BIVARIATE PLOTS:
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/223607ac-eba1-4640-ae03-f82a9e36d40c)
+
+As you can see, the higher the alcohol content, the higher its quality rating is. However, even the lower rated wine contains alcohol whose levels are closer to the average rated wines. This means that there are other parameters which affect the aroma and taste of the wine, and which further determines the final quality of the wine.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/c7a9e662-dd9b-4954-b782-675334dd9f7b)
+
+This scatter-plot shows how the values of pH change with changing fixed acidity levels. We can see that, as fixed acidity levels increase, the pH levels drop. A lower pH level is, after all, an indicator of high acidity.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/ce081857-c44d-47de-aafb-9af71ec0dc07)
+
+The figure above shows that the higher the total SO2 content, the greater the density, and a positive correlation between the two.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/37b17a06-fa56-49a9-b25f-f983b8384b93)
+
+Samples with high total SO2 content tend to have higher residual sugar content.
+
+![image](https://github.com/Omkar-Kakade-Github/Wine-Dataset-Analysis/assets/142827433/2b0827eb-b355-4380-805b-6bf9f7003ae3)
+
+In samples with high alcohol content, the total SO2 content is low, and in the samples with smooth fermentation, so2 will not be added again to adjust the fermentation reaction. This verifies the control logic of SO2 during the brewing.
+
+BIVARIATE ANALYSIS:
+
+Based on the general knowledge of biochemistry, you can judge the correlation between some parameters, such as sugar content and alcohol content can affect the density.Are there any more correlations? After listing the correlation coefficient matrix, based on the calculated correlation coefficients, roughly ploting the coefficients above 0.2 to see if the coefficients and the map match. During this exploration, we found the density and the amount of residual sugar have correlation with total SO2.Through the correlation coefficient matrix, we can see the quality has a greater correlation with the following factors: density, alcohol, alchohol, total SO2 content. These are the focus of further exploration.The strongest correlation is between the density and the amount of residual sugar, with a coefficient of 0.84.
